@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Ziyadov Store</title>
+    <title>Ziyadov Store | Premium Configs</title>
     <style>
         :root {
-            --glass: rgba(255, 255, 255, 0.08);
+            --glass: rgba(255, 255, 255, 0.05);
             --accent: #00d2ff;
             --premium: #ffcc00;
-            --bg: #0d0d0f;
+            --bg: #08080a;
         }
 
         body {
             background: var(--bg);
             color: white;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 20px;
             display: flex;
@@ -27,102 +27,138 @@
             width: 100%;
             max-width: 400px;
             text-align: center;
-            padding: 20px 0;
-            background: rgba(255,255,255,0.03);
-            border-radius: 20px;
-            margin-bottom: 25px;
-            border: 1px solid rgba(255,255,255,0.1);
+            padding: 30px 0;
+            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+            border-radius: 25px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        h1 { margin: 0; font-size: 22px; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; }
+        h1 { margin: 0; font-size: 26px; font-weight: 800; color: var(--accent); letter-spacing: 1px; }
+        header p { margin: 5px 0 0; font-size: 12px; opacity: 0.6; text-transform: uppercase; }
 
         .container {
             width: 100%;
             max-width: 400px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px;
         }
 
         .card {
             background: var(--glass);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 25px;
-            padding: 15px;
+            border-radius: 30px;
+            padding: 20px;
             text-align: center;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+
+        .card:hover { transform: scale(1.02); border-color: var(--accent); }
 
         .product-img {
             width: 100%;
-            height: 160px;
-            border-radius: 18px;
+            height: 180px;
+            border-radius: 22px;
             object-fit: cover;
-            margin-bottom: 12px;
-        }
-
-        .title { font-size: 20px; font-weight: bold; margin-bottom: 5px; }
-        
-        .price-tag {
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--accent);
             margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
-        .premium-card { border: 1px solid var(--premium); background: rgba(255, 204, 0, 0.05); }
+        .title { font-size: 22px; font-weight: 700; margin-bottom: 8px; color: #fff; }
+        
+        .info { 
+            font-size: 13px; 
+            color: #bbb; 
+            margin-bottom: 15px; 
+            line-height: 1.5;
+            padding: 0 10px;
+        }
+
+        .price-tag {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .price-tag span { font-size: 14px; opacity: 0.8; }
+
+        /* Premium Card Styles */
+        .premium-card { 
+            border: 1px solid rgba(255, 204, 0, 0.3); 
+            background: linear-gradient(145deg, rgba(255, 204, 0, 0.05), rgba(0,0,0,0)); 
+        }
+        .premium-card .title { color: var(--premium); }
         .premium-card .price-tag { color: var(--premium); }
-        .premium-card .buy-btn { background: var(--premium); color: black; }
+        .premium-card .buy-btn { 
+            background: linear-gradient(90deg, #ffcc00, #ff9900); 
+            color: #000; 
+        }
 
         .buy-btn {
-            background: #25D366;
+            background: linear-gradient(90deg, #25D366, #128C7E);
             color: white;
             text-decoration: none;
-            padding: 15px;
+            padding: 16px;
             display: block;
-            border-radius: 18px;
-            font-weight: bold;
-            font-size: 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 16px;
             border: none;
             width: 100%;
             cursor: pointer;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
         }
+
+        .buy-btn:active { transform: scale(0.95); }
     </style>
 </head>
 <body>
 
 <header>
     <h1>Ziyadov Store</h1>
+    <p>Premium LMC 8.4 Configs</p>
 </header>
 
 <div class="container">
     
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400" class="product-img">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=500" class="product-img">
         <div class="title">10-lu Paket</div>
-        <div class="price-tag">15 AZN</div>
+        <div class="info">Başlanğıc üçün ideal seçim. Bütün əsas rəng tənzimləmələri daxildir.</div>
+        <div class="price-tag">15 <span>AZN</span></div>
         <button class="buy-btn" onclick="order('10-lu Paket', '15')">Sifariş Et (WhatsApp)</button>
     </div>
 
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=400" class="product-img">
+        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=500" class="product-img">
         <div class="title">20-li Paket</div>
-        <div class="price-tag">25 AZN</div>
+        <div class="info">Daha çox çeşid, daha çox effekt. Gündəlik çəkilişlər üçün mükəmməldir.</div>
+        <div class="price-tag">25 <span>AZN</span></div>
         <button class="buy-btn" onclick="order('20-li Paket', '25')">Sifariş Et (WhatsApp)</button>
     </div>
 
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1433086566280-608bd7d5440b?w=400" class="product-img">
+        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=500" class="product-img">
         <div class="title">30-lu Paket</div>
-        <div class="price-tag">35 AZN</div>
+        <div class="info">Tam kolleksiya! Gecə, gündüz və portret çəkilişləri üçün hər şey burada.</div>
+        <div class="price-tag">35 <span>AZN</span></div>
         <button class="buy-btn" onclick="order('30-lu Paket', '35')">Sifariş Et (WhatsApp)</button>
     </div>
 
     <div class="card premium-card">
-        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=400" class="product-img">
+        <img src="https://images.unsplash.com/photo-1496715976403-7e36d41c0b88?w=500" class="product-img">
         <div class="title">✨ PREMIUM Paket ✨</div>
-        <div class="price-tag">5 AZN</div>
+        <div class="info">Xüsusi VIP tənzimləmələr. Şəkillərinizə peşəkar iPhone effekti verin.</div>
+        <div class="price-tag">5 <span>AZN</span></div>
         <button class="buy-btn" onclick="order('PREMIUM Paket', '5')">Sifariş Et (WhatsApp)</button>
     </div>
 
