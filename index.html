@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Ziyadov Store | Paketlər</title>
+    <title>Ziyadov Store</title>
     <style>
         :root {
             --glass: rgba(255, 255, 255, 0.08);
@@ -25,6 +25,7 @@
 
         header {
             width: 100%;
+            max-width: 400px;
             text-align: center;
             padding: 20px 0;
             background: rgba(255,255,255,0.03);
@@ -43,7 +44,6 @@
             gap: 20px;
         }
 
-        /* Liquid Glass Kart */
         .card {
             background: var(--glass);
             backdrop-filter: blur(15px);
@@ -52,14 +52,11 @@
             border-radius: 25px;
             padding: 15px;
             text-align: center;
-            transition: 0.3s;
         }
-
-        .card:hover { border-color: var(--accent); }
 
         .product-img {
             width: 100%;
-            height: 140px;
+            height: 160px;
             border-radius: 18px;
             object-fit: cover;
             margin-bottom: 12px;
@@ -82,17 +79,15 @@
             background: #25D366;
             color: white;
             text-decoration: none;
-            padding: 12px;
+            padding: 15px;
             display: block;
-            border-radius: 15px;
+            border-radius: 18px;
             font-weight: bold;
             font-size: 15px;
             border: none;
             width: 100%;
             cursor: pointer;
         }
-
-        .buy-btn:active { transform: scale(0.96); }
     </style>
 </head>
 <body>
@@ -104,11 +99,42 @@
 <div class="container">
     
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=400&q=80" class="product-img">
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400" class="product-img">
         <div class="title">10-lu Paket</div>
         <div class="price-tag">15 AZN</div>
         <button class="buy-btn" onclick="order('10-lu Paket', '15')">Sifariş Et (WhatsApp)</button>
     </div>
 
     <div class="card">
-        <img src="
+        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=400" class="product-img">
+        <div class="title">20-li Paket</div>
+        <div class="price-tag">25 AZN</div>
+        <button class="buy-btn" onclick="order('20-li Paket', '25')">Sifariş Et (WhatsApp)</button>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1433086566280-608bd7d5440b?w=400" class="product-img">
+        <div class="title">30-lu Paket</div>
+        <div class="price-tag">35 AZN</div>
+        <button class="buy-btn" onclick="order('30-lu Paket', '35')">Sifariş Et (WhatsApp)</button>
+    </div>
+
+    <div class="card premium-card">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=400" class="product-img">
+        <div class="title">✨ PREMIUM Paket ✨</div>
+        <div class="price-tag">5 AZN</div>
+        <button class="buy-btn" onclick="order('PREMIUM Paket', '5')">Sifariş Et (WhatsApp)</button>
+    </div>
+
+</div>
+
+<script>
+    function order(name, price) {
+        let phone = "994515114568";
+        let message = "Salam Ziyadov Store! Mən saytdan bu paketi almaq istəyirəm:\n\n📦 Paket: " + name + "\n💰 Qiymət: " + price + " AZN";
+        window.location.href = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+    }
+</script>
+
+</body>
+</html>
