@@ -48,6 +48,7 @@
             white-space: nowrap;
             cursor: pointer;
             font-size: 14px;
+            transition: 0.3s;
         }
 
         nav button.active {
@@ -65,7 +66,7 @@
 
         h1 { margin: 0; font-size: 24px; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; }
 
-        .page-section { display: none; width: 100%; max-width: 400px; padding: 0 20px 40px 20px; box-sizing: border-box; }
+        .page-section { display: none; width: 100%; max-width: 400px; padding: 0 20px 20px 20px; box-sizing: border-box; }
         .page-section.active { display: flex; flex-direction: column; gap: 20px; }
 
         .card {
@@ -101,10 +102,11 @@
             font-weight: 700;
             border: none;
             cursor: pointer;
+            font-size: 15px;
         }
 
         .like-btn {
-            background: var(--glass);
+            background: rgba(255,255,255,0.1);
             border: none;
             color: white;
             flex: 1;
@@ -114,21 +116,23 @@
             align-items: center;
             justify-content: center;
             gap: 5px;
+            transition: 0.2s;
         }
 
-        .like-btn.liked { color: #ff4757; }
+        .like-btn.liked { color: #ff4757; background: rgba(255, 71, 87, 0.1); }
 
         .comment-area {
             width: 100%;
             max-width: 400px;
             padding: 20px;
             box-sizing: border-box;
+            margin-bottom: 30px;
         }
 
         .comment-box {
             background: var(--glass);
-            border-radius: 20px;
-            padding: 15px;
+            border-radius: 25px;
+            padding: 20px;
             border: 1px solid rgba(255,255,255,0.1);
         }
 
@@ -136,21 +140,22 @@
             width: 100%;
             background: rgba(0,0,0,0.3);
             border: 1px solid rgba(255,255,255,0.1);
-            padding: 10px;
-            border-radius: 10px;
+            padding: 12px;
+            border-radius: 12px;
             color: white;
             margin-bottom: 10px;
             box-sizing: border-box;
+            font-family: inherit;
         }
 
         .comment-list {
             margin-top: 15px;
-            max-height: 200px;
+            max-height: 250px;
             overflow-y: auto;
         }
 
         .comment-item {
-            padding: 8px;
+            padding: 10px;
             border-bottom: 1px solid rgba(255,255,255,0.05);
             font-size: 14px;
         }
@@ -177,19 +182,48 @@
         <div class="price">15 AZN</div>
         <div class="action-bar">
             <button class="buy-btn" onclick="order('10-lu Paket', '15')">Sifariş Et</button>
-            <button class="like-btn" onclick="toggleLike(this)">❤ <span>15</span></button>
+            <button class="like-btn" onclick="toggleLike(this)">❤ <span>0</span></button>
         </div>
     </div>
+    <div class="card">
+        <img src="https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?w=400" class="product-img">
+        <div class="title">20-li Paket</div>
+        <div class="info">Gündüz, gecə və portret çəkilişləri üçün 20 fərqli peşəkar konfiqurasiya.</div>
+        <div class="price">25 AZN</div>
+        <div class="action-bar">
+            <button class="buy-btn" onclick="order('20-li Paket', '25')">Sifariş Et</button>
+            <button class="like-btn" onclick="toggleLike(this)">❤ <span>0</span></button>
+        </div>
     </div>
+    <div class="card" style="border-color: var(--premium)">
+        <img src="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?w=400" class="product-img">
+        <div class="title" style="color: var(--premium)">✨ PREMIUM Paket ✨</div>
+        <div class="info">Ən özəl iPhone effekti və VIP tənzimləmələr.</div>
+        <div class="price" style="color: var(--premium)">5 AZN</div>
+        <div class="action-bar">
+            <button class="buy-btn" style="background: var(--premium); color: black;" onclick="order('PREMIUM Paket', '5')">Sifariş Et</button>
+            <button class="like-btn" onclick="toggleLike(this)">❤ <span>0</span></button>
+        </div>
+    </div>
+</div>
 
 <div id="cameras" class="page-section">
     <div class="card">
         <div class="title">LMC 8.4</div>
-        <div class="info">Stabil və professional kamera tətbiqi.</div>
+        <div class="info">Stabil və çox funksiyalı Google Camera modifikasiyası.</div>
         <div class="price">Ödənişli</div>
         <div class="action-bar">
             <button class="buy-btn" onclick="order('LMC 8.4', 'Ödənişli')">Sifariş Et</button>
-            <button class="like-btn" onclick="toggleLike(this)">❤ <span>9</span></button>
+            <button class="like-btn" onclick="toggleLike(this)">❤ <span>0</span></button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="title">Magic Camera</div>
+        <div class="info">Professional video çəkiliş və LUT dəstəyi üçün.</div>
+        <div class="price">Ödənişli</div>
+        <div class="action-bar">
+            <button class="buy-btn" onclick="order('Magic Camera', 'Ödənişli')">Sifariş Et</button>
+            <button class="like-btn" onclick="toggleLike(this)">❤ <span>0</span></button>
         </div>
     </div>
 </div>
@@ -197,11 +231,20 @@
 <div id="luts" class="page-section">
     <div class="card">
         <div class="title">5 LUT Paketi</div>
-        <div class="info">Rəng korreksiyası üçün kinematik tonlar.</div>
+        <div class="info">Magic Camera üçün kinematik rəng tonları.</div>
         <div class="price">10 AZN</div>
         <div class="action-bar">
             <button class="buy-btn" onclick="order('5 LUT Paketi', '10')">Sifariş Et</button>
-            <button class="like-btn" onclick="toggleLike(this)">❤ <span>4</span></button>
+            <button class="like-btn" onclick="toggleLike(this)">❤ <span>0</span></button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="title">20 LUT Paketi</div>
+        <div class="info">Tam peşəkar LUT dəsti (Vlog və iPhone tonları).</div>
+        <div class="price">35 AZN</div>
+        <div class="action-bar">
+            <button class="buy-btn" onclick="order('20 LUT Paketi', '35')">Sifariş Et</button>
+            <button class="like-btn" onclick="toggleLike(this)">❤ <span>0</span></button>
         </div>
     </div>
 </div>
@@ -209,32 +252,32 @@
 <div id="apps" class="page-section">
     <div class="card">
         <div class="title">Remini Pro</div>
-        <div class="info">Bulanıq şəkilləri bir toxunuşla netləşdirən professional enhancer tətbiqi.</div>
+        <div class="info">Bulanıq şəkilləri netləşdirən professional enhancer tətbiqi.</div>
         <div class="price">Ödənişli</div>
         <div class="action-bar">
             <button class="buy-btn" onclick="order('Remini Pro', 'Ödənişli')">Sifariş Et</button>
-            <button class="like-btn" onclick="toggleLike(this)">❤ <span>32</span></button>
+            <button class="like-btn" onclick="toggleLike(this)">❤ <span>0</span></button>
         </div>
     </div>
     <div class="card">
-        <div class="title">CapCut</div>
-        <div class="info">Bütün premium effektləri aktiv olan montaj proqramı.</div>
+        <div class="title">CapCut Premium</div>
+        <div class="info">Bütün premium funksiyaları aktiv olan montaj proqramı.</div>
         <div class="price">Ödənişli</div>
         <div class="action-bar">
-            <button class="buy-btn" onclick="order('CapCut', 'Ödənişli')">Sifariş Et</button>
-            <button class="like-btn" onclick="toggleLike(this)">❤ <span>21</span></button>
+            <button class="buy-btn" onclick="order('CapCut Premium', 'Ödənişli')">Sifariş Et</button>
+            <button class="like-btn" onclick="toggleLike(this)">❤ <span>0</span></button>
         </div>
     </div>
 </div>
 
 <div class="comment-area">
     <div class="comment-box">
-        <h3>Rəylər</h3>
+        <h3 style="margin-top:0; color:var(--accent)">Rəylər</h3>
         <input type="text" id="uName" class="comment-input" placeholder="Adınız...">
-        <textarea id="uText" class="comment-input" placeholder="Fikrinizi bura yazın..."></textarea>
+        <textarea id="uText" class="comment-input" placeholder="Fikrinizi yazın..." rows="2"></textarea>
         <button class="buy-btn" style="background: var(--accent); color: black; width: 100%;" onclick="sendComment()">Göndər</button>
         <div class="comment-list" id="cList">
-            <div class="comment-item"><strong>Araz:</strong> Remini Pro çox super işləyir, təşəkkürlər!</div>
+            <div class="comment-item"><strong>Araz:</strong> Mağaza çox etibarlıdır, tövsiyə edirəm!</div>
         </div>
     </div>
 </div>
@@ -245,30 +288,34 @@
         document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
         document.getElementById(pId).classList.add('active');
         document.getElementById('btn-' + pId).classList.add('active');
+        window.scrollTo(0,0);
     }
 
     function order(n, p) {
         let ph = "994515114568";
-        let msg = "Salam! " + n + (p !== 'Ödənişli' ? " (" + p + " AZN)" : "") + " almaq istəyirəm.";
+        let msg = "Salam Ziyadov Store! Məhsul: " + n + (p !== 'Ödənişli' ? " / Qiymət: " + p + " AZN" : "") + " almaq istəyirəm.";
         window.location.href = "https://wa.me/" + ph + "?text=" + encodeURIComponent(msg);
     }
 
     function toggleLike(b) {
         b.classList.toggle('liked');
         let s = b.querySelector('span');
-        s.innerText = parseInt(s.innerText) + (b.classList.contains('liked') ? 1 : -1);
+        let current = parseInt(s.innerText);
+        s.innerText = b.classList.contains('liked') ? current + 1 : current - 1;
     }
 
     function sendComment() {
         let n = document.getElementById('uName').value;
         let t = document.getElementById('uText').value;
-        if(n && t) {
+        if(n.trim() && t.trim()) {
             let l = document.getElementById('cList');
             let d = document.createElement('div');
             d.className = 'comment-item';
             d.innerHTML = `<strong>${n}:</strong> ${t}`;
             l.prepend(d);
             document.getElementById('uText').value = "";
+        } else {
+            alert("Zəhmət olmasa bütün xanaları doldurun.");
         }
     }
 </script>
