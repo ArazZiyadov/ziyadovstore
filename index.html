@@ -10,6 +10,7 @@
             --accent: #00d2ff;
             --premium: #ffcc00;
             --bg: #08080a;
+            --success: #25D366;
         }
 
         body {
@@ -74,6 +75,7 @@
             border-radius: 25px;
             padding: 18px;
             text-align: center;
+            position: relative;
         }
 
         .product-img {
@@ -87,150 +89,7 @@
 
         .title { font-size: 20px; font-weight: bold; margin-bottom: 8px; }
         .info { font-size: 13px; color: #bbb; margin-bottom: 12px; line-height: 1.4; }
-        .price { font-size: 24px; font-weight: 800; color: var(--accent); margin-bottom: 18px; }
+        .price { font-size: 24px; font-weight: 800; color: var(--accent); margin-bottom: 15px; }
 
-        .buy-btn {
-            background: #25D366;
-            color: white;
-            text-decoration: none;
-            padding: 15px;
-            display: block;
-            border-radius: 18px;
-            font-weight: 700;
-            border: none;
-            width: 100%;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-
-<nav id="mainNav">
-    <button onclick="showPage('configs')" id="btn-configs" class="active">Configlər</button>
-    <button onclick="showPage('cameras')" id="btn-cameras">Kameralar</button>
-    <button onclick="showPage('luts')" id="btn-luts">LUT-lar</button>
-    <button onclick="showPage('apps')" id="btn-apps">Tətbiqlər</button>
-</nav>
-
-<header>
-    <h1>Ziyadov Store</h1>
-</header>
-
-<div id="configs" class="page-section active">
-    <div class="card">
-        <img src="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?w=400" class="product-img">
-        <div class="title">10-lu Paket</div>
-        <div class="info">LMC 8.4 üçün ən çox istifadə olunan 10 əsas tənzimləmə faylı.</div>
-        <div class="price">15 AZN</div>
-        <button class="buy-btn" onclick="order('10-lu Paket', '15')">Sifariş Et</button>
-    </div>
-    <div class="card">
-        <img src="https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?w=400" class="product-img">
-        <div class="title">20-li Paket</div>
-        <div class="info">Gündüz, gecə və portret çəkilişləri üçün 20 fərqli peşəkar konfiqurasiya.</div>
-        <div class="price">25 AZN</div>
-        <button class="buy-btn" onclick="order('20-li Paket', '25')">Sifariş Et</button>
-    </div>
-    <div class="card">
-        <img src="https://images.pexels.com/photos/709552/pexels-photo-709552.jpeg?w=400" class="product-img">
-        <div class="title">30-lu Paket</div>
-        <div class="info">Tam arxiv! Bütün işıq və məkan şəraitləri üçün 30 ədəd özəl seçim.</div>
-        <div class="price">35 AZN</div>
-        <button class="buy-btn" onclick="order('30-lu Paket', '35')">Sifariş Et</button>
-    </div>
-    <div class="card" style="border-color: var(--premium); background: rgba(255, 204, 0, 0.03);">
-        <img src="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?w=400" class="product-img">
-        <div class="title" style="color: var(--premium)">✨ PREMIUM Paket ✨</div>
-        <div class="info">Ən özəl, heç yerdə olmayan iPhone effekti və VIP tənzimləmələr.</div>
-        <div class="price" style="color: var(--premium)">5 AZN</div>
-        <button class="buy-btn" style="background: var(--premium); color: black;" onclick="order('PREMIUM Paket', '5')">Sifariş Et</button>
-    </div>
-</div>
-
-<div id="cameras" class="page-section">
-    <div class="card">
-        <div class="title">LMC 8.4</div>
-        <div class="info">Ən stabil və ən çox funksiyalı Google Camera modifikasiyası.</div>
-        <div class="price">Ödənişli</div>
-        <button class="buy-btn" onclick="order('LMC 8.4', 'Ödənişli')">Sifariş Et</button>
-    </div>
-    <div class="card">
-        <div class="title">Google Camera</div>
-        <div class="info">Cihazınıza tam uyğunlaşdırılmış rəsmi GCam versiyaları.</div>
-        <div class="price">Ödənişli</div>
-        <button class="buy-btn" onclick="order('Google Camera', 'Ödənişli')">Sifariş Et</button>
-    </div>
-    <div class="card">
-        <div class="title">Open Camera</div>
-        <div class="info">Bütün kamera tənzimləmələrinə əllə müdaxilə etmək üçün proqram.</div>
-        <div class="price">Ödənişli</div>
-        <button class="buy-btn" onclick="order('Open Camera', 'Ödənişli')">Sifariş Et</button>
-    </div>
-    <div class="card">
-        <div class="title">Magic Camera</div>
-        <div class="info">Xüsusi video effektləri və LUT-lar üçün nəzərdə tutulmuş tətbiq.</div>
-        <div class="price">Ödənişli</div>
-        <button class="buy-btn" onclick="order('Magic Camera', 'Ödənişli')">Sifariş Et</button>
-    </div>
-</div>
-
-<div id="luts" class="page-section">
-    <div class="card">
-        <div class="title">5 LUT Paketi</div>
-        <div class="info">Magic Camera üçün 5 ədəd təmiz rəng korreksiyası və canlı tonlar.</div>
-        <div class="price">10 AZN</div>
-        <button class="buy-btn" onclick="order('5 LUT Paketi', '10')">Sifariş Et</button>
-    </div>
-    <div class="card">
-        <div class="title">10 LUT Paketi</div>
-        <div class="info">10 ədəd peşəkar kinematik və film effekti verən özəl rəng tənzimləməsi.</div>
-        <div class="price">20 AZN</div>
-        <button class="buy-btn" onclick="order('10 LUT Paketi', '20')">Sifariş Et</button>
-    </div>
-    <div class="card">
-        <div class="title">20 LUT Paketi</div>
-        <div class="info">Ən böyük paket! 20 ədəd VIP iPhone, Nature və Urban üslublu rəng tonları.</div>
-        <div class="price">35 AZN</div>
-        <button class="buy-btn" onclick="order('20 LUT Paketi', '35')">Sifariş Et</button>
-    </div>
-</div>
-
-<div id="apps" class="page-section">
-    <div class="card">
-        <div class="title">CapCut</div>
-        <div class="info">Bütün premium funksiyaları və effektləri aktiv olan montaj proqramı.</div>
-        <div class="price">Ödənişli</div>
-        <button class="buy-btn" onclick="order('CapCut', 'Ödənişli')">Sifariş Et</button>
-    </div>
-    <div class="card">
-        <div class="title">Meitu</div>
-        <div class="info">Üz və bədən redaktəsi üçün ən güclü professional foto tətbiqi.</div>
-        <div class="price">Ödənişli</div>
-        <button class="buy-btn" onclick="order('Meitu', 'Ödənişli')">Sifariş Et</button>
-    </div>
-    <div class="card">
-        <div class="title">InShot</div>
-        <div class="info">Bütün stiker və keçidləri aktiv olan sürətli video redaktə proqramı.</div>
-        <div class="price">Ödənişli</div>
-        <button class="buy-btn" onclick="order('InShot', 'Ödənişli')">Sifariş Et</button>
-    </div>
-</div>
-
-<script>
-    function showPage(pageId) {
-        document.querySelectorAll('.page-section').forEach(section => section.classList.remove('active'));
-        document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
-        document.getElementById(pageId).classList.add('active');
-        document.getElementById('btn-' + pageId).classList.add('active');
-        window.scrollTo(0,0);
-    }
-
-    function order(name, price) {
-        let phone = "994515114568";
-        let message = "Salam Ziyadov Store! Məhsul: " + name + (price !== 'Ödənişli' ? " / Qiymət: " + price + " AZN" : "") + " haqqında məlumat almaq və sifariş etmək istəyirəm.";
-        window.location.href = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
-    }
-</script>
-
-</body>
-</html>
+        .action-bar {
+            display: flex
