@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Ziyadov Store | Multi-Page</title>
+    <title>Ziyadov Store</title>
     <style>
         :root {
             --glass: rgba(255, 255, 255, 0.05);
@@ -23,18 +23,17 @@
             align-items: center;
         }
 
-        /* Naviqasiya Menyusu */
         nav {
             position: sticky;
             top: 0;
             z-index: 100;
             width: 100%;
-            background: rgba(8, 8, 10, 0.9);
+            background: rgba(8, 8, 10, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255,255,255,0.1);
             display: flex;
             overflow-x: auto;
-            padding: 10px 0;
+            padding: 15px 10px;
             justify-content: center;
             gap: 10px;
         }
@@ -43,11 +42,11 @@
             background: var(--glass);
             border: 1px solid rgba(255,255,255,0.1);
             color: white;
-            padding: 8px 15px;
+            padding: 10px 18px;
             border-radius: 12px;
             white-space: nowrap;
             cursor: pointer;
-            font-size: 13px;
+            font-size: 14px;
         }
 
         nav button.active {
@@ -60,11 +59,12 @@
             width: 90%;
             max-width: 400px;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 20px;
+            padding: 25px 0;
         }
 
-        .page-section { display: none; width: 100%; max-width: 400px; padding: 20px; box-sizing: border-box; }
+        h1 { margin: 0; font-size: 24px; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; }
+
+        .page-section { display: none; width: 100%; max-width: 400px; padding: 0 20px 40px 20px; box-sizing: border-box; }
         .page-section.active { display: flex; flex-direction: column; gap: 20px; }
 
         .card {
@@ -72,29 +72,30 @@
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 25px;
-            padding: 15px;
+            padding: 18px;
             text-align: center;
         }
 
         .product-img {
             width: 100%;
-            height: 150px;
-            border-radius: 18px;
+            height: 170px;
+            border-radius: 20px;
             object-fit: cover;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
+            background: #111;
         }
 
-        .title { font-size: 19px; font-weight: bold; margin-bottom: 5px; }
-        .info { font-size: 12px; color: #bbb; margin-bottom: 10px; }
-        .price { font-size: 22px; font-weight: 800; color: var(--accent); margin-bottom: 15px; }
+        .title { font-size: 20px; font-weight: bold; margin-bottom: 8px; }
+        .info { font-size: 13px; color: #bbb; margin-bottom: 12px; line-height: 1.4; }
+        .price { font-size: 24px; font-weight: 800; color: var(--accent); margin-bottom: 18px; }
 
         .buy-btn {
-            background: linear-gradient(90deg, #25D366, #128C7E);
+            background: #25D366;
             color: white;
             text-decoration: none;
-            padding: 12px;
+            padding: 15px;
             display: block;
-            border-radius: 15px;
+            border-radius: 18px;
             font-weight: 700;
             border: none;
             width: 100%;
@@ -105,55 +106,90 @@
 <body>
 
 <nav id="mainNav">
-    <button onclick="showPage('configs')" class="active">Configlər</button>
-    <button onclick="showPage('cameras')">Kameralar</button>
-    <button onclick="showPage('luts')">LUT-lar</button>
-    <button onclick="showPage('apps')">Tətbiqlər</button>
+    <button onclick="showPage('configs')" id="btn-configs" class="active">Configlər</button>
+    <button onclick="showPage('cameras')" id="btn-cameras">Kameralar</button>
+    <button onclick="showPage('luts')" id="btn-luts">LUT-lar</button>
+    <button onclick="showPage('apps')" id="btn-apps">Tətbiqlər</button>
 </nav>
 
 <header>
-    <h1 id="pageTitle">Ziyadov Store</h1>
+    <h1>Ziyadov Store</h1>
 </header>
 
 <div id="configs" class="page-section active">
     <div class="card">
         <img src="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?w=400" class="product-img">
         <div class="title">10-lu Paket</div>
+        <div class="info">LMC 8.4 üçün ən çox istifadə olunan 10 əsas tənzimləmə faylı.</div>
         <div class="price">15 AZN</div>
-        <button class="buy-btn" onclick="order('10-lu Paket', '15')">WhatsApp ilə Al</button>
+        <button class="buy-btn" onclick="order('10-lu Paket', '15')">Sifariş Et</button>
     </div>
+    <div class="card">
+        <img src="https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?w=400" class="product-img">
+        <div class="title">20-li Paket</div>
+        <div class="info">Gündüz, gecə və portret çəkilişləri üçün 20 fərqli peşəkar konfiqurasiya.</div>
+        <div class="price">25 AZN</div>
+        <button class="buy-btn" onclick="order('20-li Paket', '25')">Sifariş Et</button>
     </div>
+    <div class="card">
+        <img src="https://images.pexels.com/photos/709552/pexels-photo-709552.jpeg?w=400" class="product-img">
+        <div class="title">30-lu Paket</div>
+        <div class="info">Tam arxiv! Bütün işıq və məkan şəraitləri üçün 30 ədəd özəl seçim.</div>
+        <div class="price">35 AZN</div>
+        <button class="buy-btn" onclick="order('30-lu Paket', '35')">Sifariş Et</button>
+    </div>
+    <div class="card" style="border-color: var(--premium); background: rgba(255, 204, 0, 0.03);">
+        <img src="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?w=400" class="product-img">
+        <div class="title" style="color: var(--premium)">✨ PREMIUM Paket ✨</div>
+        <div class="info">Ən özəl, heç yerdə olmayan iPhone effekti və VIP tənzimləmələr.</div>
+        <div class="price" style="color: var(--premium)">5 AZN</div>
+        <button class="buy-btn" style="background: var(--premium); color: black;" onclick="order('PREMIUM Paket', '5')">Sifariş Et</button>
+    </div>
+</div>
 
 <div id="cameras" class="page-section">
     <div class="card">
-        <img src="https://images.pexels.com/photos/1205033/pexels-photo-1205033.jpeg?w=400" class="product-img">
-        <div class="title">LMC 8.4 & GCam</div>
-        <div class="info">Ən stabil Google Camera versiyaları.</div>
-        <div class="price">Pulsuz/Ödənişli</div>
-        <button class="buy-btn" onclick="order('LMC Kamera', '0')">Məlumat Al</button>
+        <div class="title">LMC 8.4</div>
+        <div class="info">Ən stabil və ən çox funksiyalı Google Camera modifikasiyası.</div>
+        <div class="price">Ödənişli</div>
+        <button class="buy-btn" onclick="order('LMC 8.4', 'Ödənişli')">Sifariş Et</button>
     </div>
     <div class="card">
-        <img src="https://images.pexels.com/photos/225157/pexels-photo-225157.jpeg?w=400" class="product-img">
+        <div class="title">Google Camera</div>
+        <div class="info">Cihazınıza tam uyğunlaşdırılmış rəsmi GCam versiyaları.</div>
+        <div class="price">Ödənişli</div>
+        <button class="buy-btn" onclick="order('Google Camera', 'Ödənişli')">Sifariş Et</button>
+    </div>
+    <div class="card">
+        <div class="title">Open Camera</div>
+        <div class="info">Bütün kamera tənzimləmələrinə əllə müdaxilə etmək üçün proqram.</div>
+        <div class="price">Ödənişli</div>
+        <button class="buy-btn" onclick="order('Open Camera', 'Ödənişli')">Sifariş Et</button>
+    </div>
+    <div class="card">
         <div class="title">Magic Camera</div>
-        <div class="info">Professional video çəkiliş üçün.</div>
-        <div class="price">Razılaşma yolu ilə</div>
-        <button class="buy-btn" onclick="order('Magic Camera', 'N/A')">Sifariş Et</button>
+        <div class="info">Xüsusi video effektləri və LUT-lar üçün nəzərdə tutulmuş tətbiq.</div>
+        <div class="price">Ödənişli</div>
+        <button class="buy-btn" onclick="order('Magic Camera', 'Ödənişli')">Sifariş Et</button>
     </div>
 </div>
 
 <div id="luts" class="page-section">
     <div class="card">
         <div class="title">5 LUT Paketi</div>
+        <div class="info">Magic Camera üçün 5 ədəd təmiz rəng korreksiyası və canlı tonlar.</div>
         <div class="price">10 AZN</div>
         <button class="buy-btn" onclick="order('5 LUT Paketi', '10')">Sifariş Et</button>
     </div>
     <div class="card">
         <div class="title">10 LUT Paketi</div>
+        <div class="info">10 ədəd peşəkar kinematik və film effekti verən özəl rəng tənzimləməsi.</div>
         <div class="price">20 AZN</div>
         <button class="buy-btn" onclick="order('10 LUT Paketi', '20')">Sifariş Et</button>
     </div>
     <div class="card">
         <div class="title">20 LUT Paketi</div>
+        <div class="info">Ən böyük paket! 20 ədəd VIP iPhone, Nature və Urban üslublu rəng tonları.</div>
         <div class="price">35 AZN</div>
         <button class="buy-btn" onclick="order('20 LUT Paketi', '35')">Sifariş Et</button>
     </div>
@@ -161,40 +197,37 @@
 
 <div id="apps" class="page-section">
     <div class="card">
-        <img src="https://images.pexels.com/photos/3585088/pexels-photo-3585088.jpeg?w=400" class="product-img">
-        <div class="title">CapCut Premium</div>
-        <div class="info">Bütün effektlər açıq versiya.</div>
-        <div class="price">Razılaşma</div>
-        <button class="buy-btn" onclick="order('CapCut Premium', 'Qiymət soruş')">Al</button>
+        <div class="title">CapCut</div>
+        <div class="info">Bütün premium funksiyaları və effektləri aktiv olan montaj proqramı.</div>
+        <div class="price">Ödənişli</div>
+        <button class="buy-btn" onclick="order('CapCut', 'Ödənişli')">Sifariş Et</button>
     </div>
     <div class="card">
-        <div class="title">Meitu & InShot</div>
-        <div class="info">Professional redaktə tətbiqləri.</div>
-        <button class="buy-btn" onclick="order('Meitu/Inshot', 'Qiymət soruş')">Al</button>
+        <div class="title">Meitu</div>
+        <div class="info">Üz və bədən redaktəsi üçün ən güclü professional foto tətbiqi.</div>
+        <div class="price">Ödənişli</div>
+        <button class="buy-btn" onclick="order('Meitu', 'Ödənişli')">Sifariş Et</button>
+    </div>
+    <div class="card">
+        <div class="title">InShot</div>
+        <div class="info">Bütün stiker və keçidləri aktiv olan sürətli video redaktə proqramı.</div>
+        <div class="price">Ödənişli</div>
+        <button class="buy-btn" onclick="order('InShot', 'Ödənişli')">Sifariş Et</button>
     </div>
 </div>
 
 <script>
     function showPage(pageId) {
-        // Bütün səhifələri gizlə
-        document.querySelectorAll('.page-section').forEach(section => {
-            section.classList.remove('active');
-        });
-        // Seçilən səhifəni göstər
+        document.querySelectorAll('.page-section').forEach(section => section.classList.remove('active'));
+        document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
         document.getElementById(pageId).classList.add('active');
-        
-        // Menyu düymələrini yenilə
-        document.querySelectorAll('nav button').forEach(btn => {
-            btn.classList.remove('active');
-            if(btn.innerText.toLowerCase().includes(pageId.substring(0,3))) {
-                btn.classList.add('active');
-            }
-        });
+        document.getElementById('btn-' + pageId).classList.add('active');
+        window.scrollTo(0,0);
     }
 
     function order(name, price) {
         let phone = "994515114568";
-        let message = "Salam Ziyadov Store!\n\nBölmə: " + name + "\nQiymət: " + price + " AZN\n\nBu barədə məlumat almaq istəyirəm.";
+        let message = "Salam Ziyadov Store! Məhsul: " + name + (price !== 'Ödənişli' ? " / Qiymət: " + price + " AZN" : "") + " haqqında məlumat almaq və sifariş etmək istəyirəm.";
         window.location.href = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
     }
 </script>
