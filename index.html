@@ -2,117 +2,131 @@
 <html lang="az">
 <head>
     <meta charset="UTF-8">
-    <title>Dark Liquid Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ziyadov Store</title>
     <style>
-        /* Dark & Liquid Glass Dizayn */
+        :root {
+            --glass: rgba(255, 255, 255, 0.07);
+            --accent: #00d2ff;
+            --bg: #0d0d0f;
+        }
+
         body {
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            background: var(--bg);
             color: white;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             margin: 0;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
         }
 
-        .glass-header {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            width: 90%;
-            padding: 20px;
-            margin-top: 20px;
+        /* Mobil üçün başlıq */
+        header {
+            width: 100%;
+            text-align: center;
+            padding: 30px 0;
+            background: rgba(255,255,255,0.03);
             border-radius: 20px;
-            text-align: center;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
         }
 
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            width: 90%;
-            margin-top: 40px;
-        }
+        h1 { margin: 0; font-size: 24px; letter-spacing: 1px; color: var(--accent); }
 
-        .product-card {
-            background: rgba(255, 255, 255, 0.03);
+        /* Liquid Glass Kart */
+        .card {
+            background: var(--glass);
             backdrop-filter: blur(20px);
-            border-radius: 25px;
-            padding: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.4s ease;
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 30px;
+            width: 100%;
+            max-width: 350px;
+            padding: 15px;
+            box-sizing: border-box;
             text-align: center;
-        }
-
-        .product-card:hover {
-            transform: scale(1.05);
-            border-color: #00d2ff;
-            box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .product-img {
             width: 100%;
-            height: 180px;
+            height: 200px;
+            background: #1a1a1c;
+            border-radius: 20px;
             object-fit: cover;
-            border-radius: 15px;
-            background: #111;
+            cursor: pointer; /* Şəkli dəyişmək üçün kliklə */
         }
 
-        .price {
-            font-size: 1.5rem;
-            color: #00d2ff;
-            margin: 15px 0;
+        .editable-title { font-size: 20px; margin: 15px 0 5px 0; outline: none; }
+        .editable-desc { font-size: 14px; opacity: 0.7; margin-bottom: 15px; outline: none; }
+
+        .price-container {
+            font-size: 26px;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 20px;
         }
 
         .buy-btn {
-            background: #00d2ff;
+            background: var(--accent);
             color: black;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 12px;
+            text-decoration: none;
+            padding: 15px;
+            display: block;
+            border-radius: 18px;
             font-weight: bold;
-            cursor: pointer;
-            width: 100%;
+            font-size: 16px;
+            transition: 0.3s;
         }
 
-        /* Kateqoriya Menyusu */
-        .nav-menu {
-            display: flex;
-            gap: 15px;
+        /* Gizli Admin Mesajı */
+        .admin-hint {
+            font-size: 10px;
+            color: #444;
             margin-top: 20px;
-        }
-
-        .nav-item {
-            padding: 8px 15px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-<div class="glass-header">
-    <h1>Dark Store</h1>
-    <div class="nav-menu">
-        <div class="nav-item">LMC Config</div>
-        <div class="nav-item">Saatlar</div>
-        <div class="nav-item">Elektronika</div>
-        <div class="nav-item">Paltarlar</div>
+<header>
+    <h1>Ziyadov Store</h1>
+</header>
+
+<div class="card">
+    <img src="https://via.placeholder.com/400x300/111/00d2ff?text=LMC+8.4+Config" 
+         class="product-img" id="mainImg" onclick="changeImage()">
+    
+    <div class="editable-title" contenteditable="true" id="pTitle">LMC 8.4 Config</div>
+    <div class="editable-desc" contenteditable="true" id="pDesc">Premium rəng tənzimləmələri</div>
+    
+    <div class="price-container">
+        <span contenteditable="true" id="pPrice">5.00</span> AZN
     </div>
+
+    <a href="#" class="buy-btn" id="waLink" onclick="updateWA()">WhatsApp ilə Al</a>
 </div>
 
-<div class="container" id="shop">
-    <div class="product-card">
-        <img src="https://via.placeholder.com/300" class="product-img">
-        <h3>LMC 8.4 Config</h3>
-        <p>Premium rəng tənzimləmələri</p>
-        <div class="price">5.00 AZN</div>
-        <button class="buy-btn">WhatsApp ilə Al</button>
-    </div>
-</div>
+<p class="admin-hint">Admin: Yazıların üstünə basaraq redaktə edə bilərsən.</p>
+
+<script>
+    // Şəkli dəyişmək üçün funksiya
+    function changeImage() {
+        let newImg = prompt("Yeni şəkil linkini yapışdırın:", "");
+        if (newImg) document.getElementById('mainImg').src = newImg;
+    }
+
+    // WhatsApp linkini avtomatik yeniləyir
+    function updateWA() {
+        let title = document.getElementById('pTitle').innerText;
+        let price = document.getElementById('pPrice').innerText;
+        let phone = "994XXXXXXXXX"; // BURAYA ÖZ NÖMRƏNİ YAZ
+        let text = `Salam, ${title} almaq istəyirəm. Qiyməti: ${price} AZN`;
+        window.location.href = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+    }
+</script>
 
 </body>
 </html>
