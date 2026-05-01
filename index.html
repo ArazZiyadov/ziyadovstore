@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Ziyadov Store | Premium Configs</title>
+    <title>Ziyadov Store | Multi-Page</title>
     <style>
         :root {
             --glass: rgba(255, 255, 255, 0.05);
@@ -15,150 +15,186 @@
         body {
             background: var(--bg);
             color: white;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        header {
+        /* Naviqasiya Menyusu */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
             width: 100%;
+            background: rgba(8, 8, 10, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            overflow-x: auto;
+            padding: 10px 0;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        nav button {
+            background: var(--glass);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 12px;
+            white-space: nowrap;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        nav button.active {
+            background: var(--accent);
+            color: black;
+            font-weight: bold;
+        }
+
+        header {
+            width: 90%;
             max-width: 400px;
             text-align: center;
-            padding: 30px 0;
-            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
-            border-radius: 25px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(255,255,255,0.08);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            padding: 20px 0;
+            margin-top: 20px;
         }
 
-        h1 { margin: 0; font-size: 26px; font-weight: 800; color: var(--accent); letter-spacing: 1px; }
-        header p { margin: 5px 0 0; font-size: 12px; opacity: 0.6; text-transform: uppercase; }
-
-        .container {
-            width: 100%;
-            max-width: 400px;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
+        .page-section { display: none; width: 100%; max-width: 400px; padding: 20px; box-sizing: border-box; }
+        .page-section.active { display: flex; flex-direction: column; gap: 20px; }
 
         .card {
             background: var(--glass);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 30px;
-            padding: 20px;
+            border-radius: 25px;
+            padding: 15px;
             text-align: center;
-            transition: 0.4s ease;
         }
 
         .product-img {
             width: 100%;
-            height: 180px;
-            border-radius: 22px;
+            height: 150px;
+            border-radius: 18px;
             object-fit: cover;
-            margin-bottom: 15px;
-            background: #111;
+            margin-bottom: 12px;
         }
 
-        .title { font-size: 22px; font-weight: 700; margin-bottom: 8px; color: #fff; }
-        
-        .info { 
-            font-size: 13px; 
-            color: #bbb; 
-            margin-bottom: 15px; 
-            line-height: 1.5;
-        }
-
-        .price-tag {
-            font-size: 28px;
-            font-weight: 900;
-            color: var(--accent);
-            margin-bottom: 20px;
-        }
-
-        .price-tag span { font-size: 14px; opacity: 0.8; }
-
-        .premium-card { 
-            border: 1px solid rgba(255, 204, 0, 0.4); 
-            background: linear-gradient(145deg, rgba(255, 204, 0, 0.08), rgba(0,0,0,0)); 
-        }
-        .premium-card .title { color: var(--premium); }
-        .premium-card .price-tag { color: var(--premium); }
-        .premium-card .buy-btn { 
-            background: linear-gradient(90deg, #ffcc00, #ff9900); 
-            color: #000; 
-        }
+        .title { font-size: 19px; font-weight: bold; margin-bottom: 5px; }
+        .info { font-size: 12px; color: #bbb; margin-bottom: 10px; }
+        .price { font-size: 22px; font-weight: 800; color: var(--accent); margin-bottom: 15px; }
 
         .buy-btn {
             background: linear-gradient(90deg, #25D366, #128C7E);
             color: white;
             text-decoration: none;
-            padding: 16px;
+            padding: 12px;
             display: block;
-            border-radius: 20px;
+            border-radius: 15px;
             font-weight: 700;
-            font-size: 16px;
             border: none;
             width: 100%;
             cursor: pointer;
         }
-
-        .buy-btn:active { transform: scale(0.95); }
     </style>
 </head>
 <body>
 
+<nav id="mainNav">
+    <button onclick="showPage('configs')" class="active">Configlər</button>
+    <button onclick="showPage('cameras')">Kameralar</button>
+    <button onclick="showPage('luts')">LUT-lar</button>
+    <button onclick="showPage('apps')">Tətbiqlər</button>
+</nav>
+
 <header>
-    <h1>Ziyadov Store</h1>
-    <p>Premium LMC 8.4 Configs</p>
+    <h1 id="pageTitle">Ziyadov Store</h1>
 </header>
 
-<div class="container">
-    
+<div id="configs" class="page-section active">
     <div class="card">
-        <img src="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&w=500" class="product-img">
+        <img src="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?w=400" class="product-img">
         <div class="title">10-lu Paket</div>
-        <div class="info">Başlanğıc üçün ideal seçim. Bütün əsas rəng tənzimləmələri daxildir.</div>
-        <div class="price-tag">15 <span>AZN</span></div>
-        <button class="buy-btn" onclick="order('10-lu Paket', '15')">Sifariş Et (WhatsApp)</button>
+        <div class="price">15 AZN</div>
+        <button class="buy-btn" onclick="order('10-lu Paket', '15')">WhatsApp ilə Al</button>
+    </div>
     </div>
 
+<div id="cameras" class="page-section">
     <div class="card">
-        <img src="https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?auto=compress&cs=tinysrgb&w=500" class="product-img">
-        <div class="title">20-li Paket</div>
-        <div class="info">Daha çox çeşid, daha çox effekt. Gündəlik çəkilişlər üçün mükəmməldir.</div>
-        <div class="price-tag">25 <span>AZN</span></div>
-        <button class="buy-btn" onclick="order('20-li Paket', '25')">Sifariş Et (WhatsApp)</button>
+        <img src="https://images.pexels.com/photos/1205033/pexels-photo-1205033.jpeg?w=400" class="product-img">
+        <div class="title">LMC 8.4 & GCam</div>
+        <div class="info">Ən stabil Google Camera versiyaları.</div>
+        <div class="price">Pulsuz/Ödənişli</div>
+        <button class="buy-btn" onclick="order('LMC Kamera', '0')">Məlumat Al</button>
     </div>
-
     <div class="card">
-        <img src="https://images.pexels.com/photos/709552/pexels-photo-709552.jpeg?auto=compress&cs=tinysrgb&w=500" class="product-img">
-        <div class="title">30-lu Paket</div>
-        <div class="info">Tam kolleksiya! Gecə, gündüz və portret çəkilişləri üçün hər şey burada.</div>
-        <div class="price-tag">35 <span>AZN</span></div>
-        <button class="buy-btn" onclick="order('30-lu Paket', '35')">Sifariş Et (WhatsApp)</button>
+        <img src="https://images.pexels.com/photos/225157/pexels-photo-225157.jpeg?w=400" class="product-img">
+        <div class="title">Magic Camera</div>
+        <div class="info">Professional video çəkiliş üçün.</div>
+        <div class="price">Razılaşma yolu ilə</div>
+        <button class="buy-btn" onclick="order('Magic Camera', 'N/A')">Sifariş Et</button>
     </div>
+</div>
 
-    <div class="card premium-card">
-        <img src="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?auto=compress&cs=tinysrgb&w=500" class="product-img">
-        <div class="title">✨ PREMIUM Paket ✨</div>
-        <div class="info">Xüsusi VIP tənzimləmələr. Şəkillərinizə peşəkar iPhone effekti verin.</div>
-        <div class="price-tag">5 <span>AZN</span></div>
-        <button class="buy-btn" onclick="order('PREMIUM Paket', '5')">Sifariş Et (WhatsApp)</button>
+<div id="luts" class="page-section">
+    <div class="card">
+        <div class="title">5 LUT Paketi</div>
+        <div class="price">10 AZN</div>
+        <button class="buy-btn" onclick="order('5 LUT Paketi', '10')">Sifariş Et</button>
     </div>
+    <div class="card">
+        <div class="title">10 LUT Paketi</div>
+        <div class="price">20 AZN</div>
+        <button class="buy-btn" onclick="order('10 LUT Paketi', '20')">Sifariş Et</button>
+    </div>
+    <div class="card">
+        <div class="title">20 LUT Paketi</div>
+        <div class="price">35 AZN</div>
+        <button class="buy-btn" onclick="order('20 LUT Paketi', '35')">Sifariş Et</button>
+    </div>
+</div>
 
+<div id="apps" class="page-section">
+    <div class="card">
+        <img src="https://images.pexels.com/photos/3585088/pexels-photo-3585088.jpeg?w=400" class="product-img">
+        <div class="title">CapCut Premium</div>
+        <div class="info">Bütün effektlər açıq versiya.</div>
+        <div class="price">Razılaşma</div>
+        <button class="buy-btn" onclick="order('CapCut Premium', 'Qiymət soruş')">Al</button>
+    </div>
+    <div class="card">
+        <div class="title">Meitu & InShot</div>
+        <div class="info">Professional redaktə tətbiqləri.</div>
+        <button class="buy-btn" onclick="order('Meitu/Inshot', 'Qiymət soruş')">Al</button>
+    </div>
 </div>
 
 <script>
+    function showPage(pageId) {
+        // Bütün səhifələri gizlə
+        document.querySelectorAll('.page-section').forEach(section => {
+            section.classList.remove('active');
+        });
+        // Seçilən səhifəni göstər
+        document.getElementById(pageId).classList.add('active');
+        
+        // Menyu düymələrini yenilə
+        document.querySelectorAll('nav button').forEach(btn => {
+            btn.classList.remove('active');
+            if(btn.innerText.toLowerCase().includes(pageId.substring(0,3))) {
+                btn.classList.add('active');
+            }
+        });
+    }
+
     function order(name, price) {
         let phone = "994515114568";
-        let message = "Salam Ziyadov Store! Mən saytdan bu paketi almaq istəyirəm:\n\n📦 Paket: " + name + "\n💰 Qiymət: " + price + " AZN";
+        let message = "Salam Ziyadov Store!\n\nBölmə: " + name + "\nQiymət: " + price + " AZN\n\nBu barədə məlumat almaq istəyirəm.";
         window.location.href = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
     }
 </script>
