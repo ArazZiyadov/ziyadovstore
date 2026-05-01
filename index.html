@@ -54,10 +54,8 @@
             border-radius: 30px;
             padding: 20px;
             text-align: center;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.4s ease;
         }
-
-        .card:hover { transform: scale(1.02); border-color: var(--accent); }
 
         .product-img {
             width: 100%;
@@ -65,7 +63,7 @@
             border-radius: 22px;
             object-fit: cover;
             margin-bottom: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            background: #111;
         }
 
         .title { font-size: 22px; font-weight: 700; margin-bottom: 8px; color: #fff; }
@@ -75,7 +73,6 @@
             color: #bbb; 
             margin-bottom: 15px; 
             line-height: 1.5;
-            padding: 0 10px;
         }
 
         .price-tag {
@@ -83,18 +80,13 @@
             font-weight: 900;
             color: var(--accent);
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
         }
 
         .price-tag span { font-size: 14px; opacity: 0.8; }
 
-        /* Premium Card Styles */
         .premium-card { 
-            border: 1px solid rgba(255, 204, 0, 0.3); 
-            background: linear-gradient(145deg, rgba(255, 204, 0, 0.05), rgba(0,0,0,0)); 
+            border: 1px solid rgba(255, 204, 0, 0.4); 
+            background: linear-gradient(145deg, rgba(255, 204, 0, 0.08), rgba(0,0,0,0)); 
         }
         .premium-card .title { color: var(--premium); }
         .premium-card .price-tag { color: var(--premium); }
@@ -115,7 +107,6 @@
             border: none;
             width: 100%;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
         }
 
         .buy-btn:active { transform: scale(0.95); }
@@ -131,7 +122,7 @@
 <div class="container">
     
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=500" class="product-img">
+        <img src="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&w=500" class="product-img">
         <div class="title">10-lu Paket</div>
         <div class="info">Başlanğıc üçün ideal seçim. Bütün əsas rəng tənzimləmələri daxildir.</div>
         <div class="price-tag">15 <span>AZN</span></div>
@@ -139,7 +130,7 @@
     </div>
 
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=500" class="product-img">
+        <img src="https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?auto=compress&cs=tinysrgb&w=500" class="product-img">
         <div class="title">20-li Paket</div>
         <div class="info">Daha çox çeşid, daha çox effekt. Gündəlik çəkilişlər üçün mükəmməldir.</div>
         <div class="price-tag">25 <span>AZN</span></div>
@@ -147,7 +138,7 @@
     </div>
 
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=500" class="product-img">
+        <img src="https://images.pexels.com/photos/709552/pexels-photo-709552.jpeg?auto=compress&cs=tinysrgb&w=500" class="product-img">
         <div class="title">30-lu Paket</div>
         <div class="info">Tam kolleksiya! Gecə, gündüz və portret çəkilişləri üçün hər şey burada.</div>
         <div class="price-tag">35 <span>AZN</span></div>
@@ -155,7 +146,7 @@
     </div>
 
     <div class="card premium-card">
-        <img src="https://images.unsplash.com/photo-1496715976403-7e36d41c0b88?w=500" class="product-img">
+        <img src="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?auto=compress&cs=tinysrgb&w=500" class="product-img">
         <div class="title">✨ PREMIUM Paket ✨</div>
         <div class="info">Xüsusi VIP tənzimləmələr. Şəkillərinizə peşəkar iPhone effekti verin.</div>
         <div class="price-tag">5 <span>AZN</span></div>
