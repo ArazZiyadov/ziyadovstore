@@ -89,7 +89,7 @@
 
         .title { font-size: 20px; font-weight: bold; margin-bottom: 8px; }
         .info { font-size: 13px; color: #bbb; margin-bottom: 12px; line-height: 1.4; }
-        .price { font-size: 24px; font-weight: 800; color: var(--accent); margin-bottom: 15px; }
+        .price { font-size: 22px; font-weight: 800; color: var(--accent); margin-bottom: 15px; }
 
         .action-bar { display: flex; gap: 10px; margin-top: 10px; }
 
@@ -102,7 +102,7 @@
             font-weight: 700;
             border: none;
             cursor: pointer;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .like-btn {
@@ -116,7 +116,7 @@
             align-items: center;
             justify-content: center;
             gap: 5px;
-            transition: 0.2s;
+            font-size: 13px;
         }
 
         .like-btn.liked { color: #ff4757; background: rgba(255, 71, 87, 0.1); }
@@ -126,7 +126,7 @@
             max-width: 400px;
             padding: 20px;
             box-sizing: border-box;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .comment-box {
@@ -145,17 +145,16 @@
             color: white;
             margin-bottom: 10px;
             box-sizing: border-box;
-            font-family: inherit;
         }
 
         .comment-list {
             margin-top: 15px;
-            max-height: 250px;
+            max-height: 200px;
             overflow-y: auto;
         }
 
         .comment-item {
-            padding: 10px;
+            padding: 10px 0;
             border-bottom: 1px solid rgba(255,255,255,0.05);
             font-size: 14px;
         }
@@ -188,14 +187,14 @@
     <div class="card">
         <img src="https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?w=400" class="product-img">
         <div class="title">20-li Paket</div>
-        <div class="info">Gündüz, gecə və portret çəkilişləri üçün 20 fərqli peşəkar konfiqurasiya.</div>
+        <div class="info">Gündüz, gecə və portret çəkilişləri üçün 20 fərqli konfiqurasiya.</div>
         <div class="price">25 AZN</div>
         <div class="action-bar">
             <button class="buy-btn" onclick="order('20-li Paket', '25')">Sifariş Et</button>
             <button class="like-btn" onclick="toggleLike(this)">❤ <span>0</span></button>
         </div>
     </div>
-    <div class="card" style="border-color: var(--premium)">
+    <div class="card" style="border: 1px solid var(--premium)">
         <img src="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?w=400" class="product-img">
         <div class="title" style="color: var(--premium)">✨ PREMIUM Paket ✨</div>
         <div class="info">Ən özəl iPhone effekti və VIP tənzimləmələr.</div>
@@ -209,8 +208,17 @@
 
 <div id="cameras" class="page-section">
     <div class="card">
+        <div class="title">Google Camera (GCam)</div>
+        <div class="info">Cihazınıza uyğun ən stabil rəsmi və mod versiyalar.</div>
+        <div class="price">Ödənişli</div>
+        <div class="action-bar">
+            <button class="buy-btn" onclick="order('Google Camera', 'Ödənişli')">Sifariş Et</button>
+            <button class="like-btn" onclick="toggleLike(this)">❤ <span>0</span></button>
+        </div>
+    </div>
+    <div class="card">
         <div class="title">LMC 8.4</div>
-        <div class="info">Stabil və çox funksiyalı Google Camera modifikasiyası.</div>
+        <div class="info">Professional tənzimləmə imkanı verən ən populyar GCam modu.</div>
         <div class="price">Ödənişli</div>
         <div class="action-bar">
             <button class="buy-btn" onclick="order('LMC 8.4', 'Ödənişli')">Sifariş Et</button>
@@ -218,11 +226,11 @@
         </div>
     </div>
     <div class="card">
-        <div class="title">Magic Camera</div>
-        <div class="info">Professional video çəkiliş və LUT dəstəyi üçün.</div>
+        <div class="title">Open Camera</div>
+        <div class="info">Bütün kamera funksiyalarını əllə idarə etmək üçün tam tənzimləmə.</div>
         <div class="price">Ödənişli</div>
         <div class="action-bar">
-            <button class="buy-btn" onclick="order('Magic Camera', 'Ödənişli')">Sifariş Et</button>
+            <button class="buy-btn" onclick="order('Open Camera', 'Ödənişli')">Sifariş Et</button>
             <button class="like-btn" onclick="toggleLike(this)">❤ <span>0</span></button>
         </div>
     </div>
@@ -230,20 +238,29 @@
 
 <div id="luts" class="page-section">
     <div class="card">
-        <div class="title">5 LUT Paketi</div>
-        <div class="info">Magic Camera üçün kinematik rəng tonları.</div>
+        <div class="title">Magic LUT (5-li)</div>
+        <div class="info">Magic Camera üçün 5 ədəd peşəkar rəng korreksiyası filtri.</div>
         <div class="price">10 AZN</div>
         <div class="action-bar">
-            <button class="buy-btn" onclick="order('5 LUT Paketi', '10')">Sifariş Et</button>
+            <button class="buy-btn" onclick="order('Magic LUT 5-li', '10')">Sifariş Et</button>
             <button class="like-btn" onclick="toggleLike(this)">❤ <span>0</span></button>
         </div>
     </div>
     <div class="card">
-        <div class="title">20 LUT Paketi</div>
-        <div class="info">Tam peşəkar LUT dəsti (Vlog və iPhone tonları).</div>
+        <div class="title">Magic LUT (10-lu)</div>
+        <div class="info">Kinematik və canlı tonlarda 10 fərqli rəng tənzimləməsi.</div>
+        <div class="price">20 AZN</div>
+        <div class="action-bar">
+            <button class="buy-btn" onclick="order('Magic LUT 10-lu', '20')">Sifariş Et</button>
+            <button class="like-btn" onclick="toggleLike(this)">❤ <span>0</span></button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="title">Magic LUT (20-li)</div>
+        <div class="info">Bütün işıq şəraitləri üçün tam 20-lik Magic LUT arxivi.</div>
         <div class="price">35 AZN</div>
         <div class="action-bar">
-            <button class="buy-btn" onclick="order('20 LUT Paketi', '35')">Sifariş Et</button>
+            <button class="buy-btn" onclick="order('Magic LUT 20-li', '35')">Sifariş Et</button>
             <button class="like-btn" onclick="toggleLike(this)">❤ <span>0</span></button>
         </div>
     </div>
@@ -252,7 +269,7 @@
 <div id="apps" class="page-section">
     <div class="card">
         <div class="title">Remini Pro</div>
-        <div class="info">Bulanıq şəkilləri netləşdirən professional enhancer tətbiqi.</div>
+        <div class="info">Bulanıq fotoları bir toxunuşla super keyfiyyətə çatdıran tətbiq.</div>
         <div class="price">Ödənişli</div>
         <div class="action-bar">
             <button class="buy-btn" onclick="order('Remini Pro', 'Ödənişli')">Sifariş Et</button>
@@ -260,11 +277,38 @@
         </div>
     </div>
     <div class="card">
-        <div class="title">CapCut Premium</div>
-        <div class="info">Bütün premium funksiyaları aktiv olan montaj proqramı.</div>
+        <div class="title">CapCut Pro</div>
+        <div class="info">Professional video montaj, bütün effektlər və keçidlər açıqdır.</div>
         <div class="price">Ödənişli</div>
         <div class="action-bar">
-            <button class="buy-btn" onclick="order('CapCut Premium', 'Ödənişli')">Sifariş Et</button>
+            <button class="buy-btn" onclick="order('CapCut Pro', 'Ödənişli')">Sifariş Et</button>
+            <button class="like-btn" onclick="toggleLike(this)">❤ <span>0</span></button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="title">InShot Pro</div>
+        <div class="info">Bütün stikerlər və filtrlar aktiv olan sürətli redaktə proqramı.</div>
+        <div class="price">Ödənişli</div>
+        <div class="action-bar">
+            <button class="buy-btn" onclick="order('InShot Pro', 'Ödənişli')">Sifariş Et</button>
+            <button class="like-btn" onclick="toggleLike(this)">❤ <span>0</span></button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="title">Netflix Pro</div>
+        <div class="info">Bütün film və serialları reklamsız və yüksək keyfiyyətlə izləyin.</div>
+        <div class="price">Ödənişli</div>
+        <div class="action-bar">
+            <button class="buy-btn" onclick="order('Netflix Pro', 'Ödənişli')">Sifariş Et</button>
+            <button class="like-btn" onclick="toggleLike(this)">❤ <span>0</span></button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="title">Spotify Pro</div>
+        <div class="info">Musiqiləri reklamsız, oflayn və yüksək səs keyfiyyəti ilə dinləyin.</div>
+        <div class="price">Ödənişli</div>
+        <div class="action-bar">
+            <button class="buy-btn" onclick="order('Spotify Pro', 'Ödənişli')">Sifariş Et</button>
             <button class="like-btn" onclick="toggleLike(this)">❤ <span>0</span></button>
         </div>
     </div>
@@ -272,12 +316,12 @@
 
 <div class="comment-area">
     <div class="comment-box">
-        <h3 style="margin-top:0; color:var(--accent)">Rəylər</h3>
+        <h3 style="margin-top:0; color:var(--accent)">Müştəri Rəyləri</h3>
         <input type="text" id="uName" class="comment-input" placeholder="Adınız...">
-        <textarea id="uText" class="comment-input" placeholder="Fikrinizi yazın..." rows="2"></textarea>
-        <button class="buy-btn" style="background: var(--accent); color: black; width: 100%;" onclick="sendComment()">Göndər</button>
+        <textarea id="uText" class="comment-input" placeholder="Fikrinizi bura yazın..." rows="2"></textarea>
+        <button class="buy-btn" style="background: var(--accent); color: black; width: 100%;" onclick="sendComment()">Rəyi Göndər</button>
         <div class="comment-list" id="cList">
-            <div class="comment-item"><strong>Araz:</strong> Mağaza çox etibarlıdır, tövsiyə edirəm!</div>
+            <div class="comment-item"><strong>Araz:</strong> Remini çox yaxşı işləyir, çox sağolun!</div>
         </div>
     </div>
 </div>
@@ -314,8 +358,7 @@
             d.innerHTML = `<strong>${n}:</strong> ${t}`;
             l.prepend(d);
             document.getElementById('uText').value = "";
-        } else {
-            alert("Zəhmət olmasa bütün xanaları doldurun.");
+            document.getElementById('uName').value = "";
         }
     }
 </script>
