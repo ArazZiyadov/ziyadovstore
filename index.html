@@ -275,9 +275,18 @@
     <div class="card">
         <div class="title">20 LUT Paketi</div>
         <div class="info">VIP iPhone və Nature üslublu tonlar.</div>
-        <div class="price">35 AZN</div>
+        <div class="price">25 AZN</div>
         <div class="action-bar">
-            <button class="buy-btn" onclick="order('20 LUT Paketi', '35')">Sifariş Et</button>
+            <button class="buy-btn" onclick="order('20 LUT Paketi', '25')">Sifariş Et</button>
+            <button class="like-btn" onclick="toggleLike(this)">❤ <span>0</span></button>
+        </div>
+    </div>
+    <div class="card" style="border: 1px solid var(--premium)">
+        <div class="title" style="color: var(--premium)">✨ PREMIUM LUT ✨</div>
+        <div class="info">Ən özəl və professional rəng paketləri.</div>
+        <div class="price" style="color: var(--premium)">10 AZN</div>
+        <div class="action-bar">
+            <button class="buy-btn" style="background: var(--premium); color: black;" onclick="order('PREMIUM LUT', '10')">Sifariş Et</button>
             <button class="like-btn" onclick="toggleLike(this)">❤ <span>0</span></button>
         </div>
     </div>
