@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Ziyadov Store</title>
+    <title>Ziyadov Store | Paketlər</title>
     <style>
         :root {
-            --glass: rgba(255, 255, 255, 0.07);
+            --glass: rgba(255, 255, 255, 0.08);
             --accent: #00d2ff;
+            --premium: #ffcc00;
             --bg: #0d0d0f;
         }
 
@@ -22,71 +23,76 @@
             align-items: center;
         }
 
-        /* Mobil üçün başlıq */
         header {
             width: 100%;
             text-align: center;
-            padding: 30px 0;
+            padding: 20px 0;
             background: rgba(255,255,255,0.03);
             border-radius: 20px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255,255,255,0.05);
+            margin-bottom: 25px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        h1 { margin: 0; font-size: 24px; letter-spacing: 1px; color: var(--accent); }
+        h1 { margin: 0; font-size: 22px; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
 
         /* Liquid Glass Kart */
         .card {
             background: var(--glass);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 30px;
-            width: 100%;
-            max-width: 350px;
+            border-radius: 25px;
             padding: 15px;
-            box-sizing: border-box;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .product-img {
-            width: 100%;
-            height: 200px;
-            background: #1a1a1c;
-            border-radius: 20px;
-            object-fit: cover;
-            cursor: pointer; /* Şəkli dəyişmək üçün kliklə */
-        }
-
-        .editable-title { font-size: 20px; margin: 15px 0 5px 0; outline: none; }
-        .editable-desc { font-size: 14px; opacity: 0.7; margin-bottom: 15px; outline: none; }
-
-        .price-container {
-            font-size: 26px;
-            font-weight: bold;
-            color: var(--accent);
-            margin-bottom: 20px;
-        }
-
-        .buy-btn {
-            background: var(--accent);
-            color: black;
-            text-decoration: none;
-            padding: 15px;
-            display: block;
-            border-radius: 18px;
-            font-weight: bold;
-            font-size: 16px;
             transition: 0.3s;
         }
 
-        /* Gizli Admin Mesajı */
-        .admin-hint {
-            font-size: 10px;
-            color: #444;
-            margin-top: 20px;
+        .card:hover { border-color: var(--accent); }
+
+        .product-img {
+            width: 100%;
+            height: 140px;
+            border-radius: 18px;
+            object-fit: cover;
+            margin-bottom: 12px;
         }
+
+        .title { font-size: 20px; font-weight: bold; margin-bottom: 5px; }
+        
+        .price-tag {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .premium-card { border: 1px solid var(--premium); background: rgba(255, 204, 0, 0.05); }
+        .premium-card .price-tag { color: var(--premium); }
+        .premium-card .buy-btn { background: var(--premium); color: black; }
+
+        .buy-btn {
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            display: block;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 15px;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .buy-btn:active { transform: scale(0.96); }
     </style>
 </head>
 <body>
@@ -95,38 +101,14 @@
     <h1>Ziyadov Store</h1>
 </header>
 
-<div class="card">
-    <img src="https://via.placeholder.com/400x300/111/00d2ff?text=LMC+8.4+Config" 
-         class="product-img" id="mainImg" onclick="changeImage()">
+<div class="container">
     
-    <div class="editable-title" contenteditable="true" id="pTitle">LMC 8.4 Config</div>
-    <div class="editable-desc" contenteditable="true" id="pDesc">Premium rəng tənzimləmələri</div>
-    
-    <div class="price-container">
-        <span contenteditable="true" id="pPrice">5.00</span> AZN
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=400&q=80" class="product-img">
+        <div class="title">10-lu Paket</div>
+        <div class="price-tag">15 AZN</div>
+        <button class="buy-btn" onclick="order('10-lu Paket', '15')">Sifariş Et (WhatsApp)</button>
     </div>
 
-    <a href="#" class="buy-btn" id="waLink" onclick="updateWA()">WhatsApp ilə Al</a>
-</div>
-
-<p class="admin-hint">Admin: Yazıların üstünə basaraq redaktə edə bilərsən.</p>
-
-<script>
-    // Şəkli dəyişmək üçün funksiya
-    function changeImage() {
-        let newImg = prompt("Yeni şəkil linkini yapışdırın:", "");
-        if (newImg) document.getElementById('mainImg').src = newImg;
-    }
-
-    // WhatsApp linkini avtomatik yeniləyir
-    function updateWA() {
-        let title = document.getElementById('pTitle').innerText;
-        let price = document.getElementById('pPrice').innerText;
-        let phone = "994XXXXXXXXX"; // BURAYA ÖZ NÖMRƏNİ YAZ
-        let text = `Salam, ${title} almaq istəyirəm. Qiyməti: ${price} AZN`;
-        window.location.href = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
-    }
-</script>
-
-</body>
-</html>
+    <div class="card">
+        <img src="
