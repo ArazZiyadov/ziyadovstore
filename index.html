@@ -75,7 +75,6 @@
             border-radius: 25px;
             padding: 18px;
             text-align: center;
-            position: relative;
         }
 
         .product-img {
@@ -91,5 +90,188 @@
         .info { font-size: 13px; color: #bbb; margin-bottom: 12px; line-height: 1.4; }
         .price { font-size: 24px; font-weight: 800; color: var(--accent); margin-bottom: 15px; }
 
-        .action-bar {
-            display: flex
+        .action-bar { display: flex; gap: 10px; margin-top: 10px; }
+
+        .buy-btn {
+            background: var(--success);
+            color: white;
+            padding: 12px;
+            flex: 3;
+            border-radius: 15px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+        }
+
+        .like-btn {
+            background: var(--glass);
+            border: none;
+            color: white;
+            flex: 1;
+            border-radius: 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .like-btn.liked { color: #ff4757; }
+
+        .comment-area {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .comment-box {
+            background: var(--glass);
+            border-radius: 20px;
+            padding: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .comment-input {
+            width: 100%;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 10px;
+            border-radius: 10px;
+            color: white;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .comment-list {
+            margin-top: 15px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .comment-item {
+            padding: 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<nav id="mainNav">
+    <button onclick="showPage('configs')" id="btn-configs" class="active">Configlər</button>
+    <button onclick="showPage('cameras')" id="btn-cameras">Kameralar</button>
+    <button onclick="showPage('luts')" id="btn-luts">LUT-lar</button>
+    <button onclick="showPage('apps')" id="btn-apps">Tətbiqlər</button>
+</nav>
+
+<header>
+    <h1>Ziyadov Store</h1>
+</header>
+
+<div id="configs" class="page-section active">
+    <div class="card">
+        <img src="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?w=400" class="product-img">
+        <div class="title">10-lu Paket</div>
+        <div class="info">LMC 8.4 üçün ən çox istifadə olunan 10 əsas tənzimləmə faylı.</div>
+        <div class="price">15 AZN</div>
+        <div class="action-bar">
+            <button class="buy-btn" onclick="order('10-lu Paket', '15')">Sifariş Et</button>
+            <button class="like-btn" onclick="toggleLike(this)">❤ <span>15</span></button>
+        </div>
+    </div>
+    </div>
+
+<div id="cameras" class="page-section">
+    <div class="card">
+        <div class="title">LMC 8.4</div>
+        <div class="info">Stabil və professional kamera tətbiqi.</div>
+        <div class="price">Ödənişli</div>
+        <div class="action-bar">
+            <button class="buy-btn" onclick="order('LMC 8.4', 'Ödənişli')">Sifariş Et</button>
+            <button class="like-btn" onclick="toggleLike(this)">❤ <span>9</span></button>
+        </div>
+    </div>
+</div>
+
+<div id="luts" class="page-section">
+    <div class="card">
+        <div class="title">5 LUT Paketi</div>
+        <div class="info">Rəng korreksiyası üçün kinematik tonlar.</div>
+        <div class="price">10 AZN</div>
+        <div class="action-bar">
+            <button class="buy-btn" onclick="order('5 LUT Paketi', '10')">Sifariş Et</button>
+            <button class="like-btn" onclick="toggleLike(this)">❤ <span>4</span></button>
+        </div>
+    </div>
+</div>
+
+<div id="apps" class="page-section">
+    <div class="card">
+        <div class="title">Remini Pro</div>
+        <div class="info">Bulanıq şəkilləri bir toxunuşla netləşdirən professional enhancer tətbiqi.</div>
+        <div class="price">Ödənişli</div>
+        <div class="action-bar">
+            <button class="buy-btn" onclick="order('Remini Pro', 'Ödənişli')">Sifariş Et</button>
+            <button class="like-btn" onclick="toggleLike(this)">❤ <span>32</span></button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="title">CapCut</div>
+        <div class="info">Bütün premium effektləri aktiv olan montaj proqramı.</div>
+        <div class="price">Ödənişli</div>
+        <div class="action-bar">
+            <button class="buy-btn" onclick="order('CapCut', 'Ödənişli')">Sifariş Et</button>
+            <button class="like-btn" onclick="toggleLike(this)">❤ <span>21</span></button>
+        </div>
+    </div>
+</div>
+
+<div class="comment-area">
+    <div class="comment-box">
+        <h3>Rəylər</h3>
+        <input type="text" id="uName" class="comment-input" placeholder="Adınız...">
+        <textarea id="uText" class="comment-input" placeholder="Fikrinizi bura yazın..."></textarea>
+        <button class="buy-btn" style="background: var(--accent); color: black; width: 100%;" onclick="sendComment()">Göndər</button>
+        <div class="comment-list" id="cList">
+            <div class="comment-item"><strong>Araz:</strong> Remini Pro çox super işləyir, təşəkkürlər!</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showPage(pId) {
+        document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+        document.getElementById(pId).classList.add('active');
+        document.getElementById('btn-' + pId).classList.add('active');
+    }
+
+    function order(n, p) {
+        let ph = "994515114568";
+        let msg = "Salam! " + n + (p !== 'Ödənişli' ? " (" + p + " AZN)" : "") + " almaq istəyirəm.";
+        window.location.href = "https://wa.me/" + ph + "?text=" + encodeURIComponent(msg);
+    }
+
+    function toggleLike(b) {
+        b.classList.toggle('liked');
+        let s = b.querySelector('span');
+        s.innerText = parseInt(s.innerText) + (b.classList.contains('liked') ? 1 : -1);
+    }
+
+    function sendComment() {
+        let n = document.getElementById('uName').value;
+        let t = document.getElementById('uText').value;
+        if(n && t) {
+            let l = document.getElementById('cList');
+            let d = document.createElement('div');
+            d.className = 'comment-item';
+            d.innerHTML = `<strong>${n}:</strong> ${t}`;
+            l.prepend(d);
+            document.getElementById('uText').value = "";
+        }
+    }
+</script>
+
+</body>
+</html>
